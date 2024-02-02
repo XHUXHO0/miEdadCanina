@@ -1,7 +1,9 @@
 package com.example.mi_edad_canina;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,16 +11,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mi_edad_canina.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        EditText ageEdit = findViewById(R.id.age_edit);
-        TextView resultText = findViewById(R.id.result_text);
-        Button button = findViewById(R.id.botton);
+        EditText ageEdit = binding.ageEdit;
+        TextView resultText = binding.resultText;
+        Button button = binding.botton;
 
         // nivel de logs para testear una app
 
@@ -41,4 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
